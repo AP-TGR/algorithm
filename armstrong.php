@@ -1,29 +1,27 @@
 <?php
-if (isset($_POST['submit'])) {
-    $number = $_POST['num'];      // get the number entered by user
-    $temp = $number;
+
+/**
+ * Return whether the number is armstrong or not
+ * 
+ * @param int $number
+ * @return boolean
+ */
+function isArmstrong($number) {
     $sum = 0;
+    $temp = $number;
+    
     while ($temp != 0) {
         $remainder = $temp % 10; //find reminder
         $sum = $sum + ( $remainder * $remainder * $remainder );
         $temp = $temp / 10;
     }
-    if ($number == $sum) {
-        echo "$number is an Armstrong Number";
-    } else {
-        echo "$number is not an Armstrong Number";
-    }
+    
+    return ($number == $sum);
 }
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Whether a number Armstrong or not</title>
-    </head>
-    <body>
-        <form name="armstrong" action="" method="post">
-            Number :<input type="text" name="num" value="" required=""><br>
-            <input type="submit" value="Submit" name="submit">
-        </form>
-    </body>
-</html>
+
+$num = 371;
+if (isArmstrong($num)) {
+    echo "The number $num is an Armstrong number";
+} else {
+    echo "The number $num is not an Armstrong number";
+}

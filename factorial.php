@@ -1,26 +1,13 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-if (isset($_POST['submit'])) {
-    $number = $_POST['num'];     /* number to get factorial */
+function getFactorial($number) {
     $fact = 1;
-    for ($k = 1; $k <= $number;  $k++) {
-        $fact = $fact * $k;
+    for ($i=1;$i<=$number;$i++) {
+        $fact = $fact * $i;
     }
-    echo "Factorial of $number is " . $fact;
+    return $fact;
 }
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Factorial of any number</title>
-    </head>
-    <body>
-        <form name="factorial" action="" method="post">
-            Number :<input type="text" name="num" value="" required=""><br>
-            <input type="submit" value="Submit" name="submit">
-        </form>
-    </body>
-</html>
+
+$num = 5;
+$factorial = getFactorial($num);
+echo "Factorial of $num is : $factorial";

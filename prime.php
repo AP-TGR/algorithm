@@ -1,33 +1,28 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-if (isset($_POST['submit'])) {
+/**
+ * Return whether the number is prime or not.
+ * 
+ * @param int $number
+ * @return boolean
+ */
+function isPrimNumber($number) {
+    // Flag whether the number is prim or not
     $isPrime = true;
-    $num = $_POST['num'];
-    for ($i = 2; $i <= ($num / 2); $i++) {
-        if ($num % $i == 0) {
+
+    for ($i = 2; $i <= ($number / 2); $i++) {
+        if ($number % $i == 0) {
             $isPrime = false;
+            break;
         }
     }
-    if ($isPrime) {
-        echo "It is a Prime Number";
-    } else {
-        echo "It is not a Prime Number";
-    }
+    return $isPrime;
 }
-?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Check whether a number prime or not</title>
-    </head>
-    <body>
-        <form name="primenumber" action="" method="post">
-            Number :<input type="text" name="num" value="" required><br>
-            <input type="submit" value="Submit" name="submit">
-        </form>
-    </body>
-</html>
+// 2,3,5,7,11.....
+$num = 11;
+if (isPrimNumber($num)) {
+    echo "The $num is a prime number";
+} else {
+    echo "The $num is not a prime number";
+}

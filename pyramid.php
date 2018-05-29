@@ -1,46 +1,40 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-ini_set('error_reporting', E_ALL);
 
-// Pyramid with *
-//$n = $i = 9; 
-//while ($i--) {    
-//    echo str_repeat('&nbsp;&nbsp;', $i).str_repeat('*&nbsp;&nbsp;', $n - $i)."<br/>";
-//}
+/**
+ * Method1: This method can be use to draw pyramid with * and numbers too
+ * Draw the Pyramid for given number
+ * 
+ * @param int $num
+ * @return void
+ */
+function pyramid($num) {
+    for ($i = 1; $i <= $num; $i++) {
+        for ($j = $num - $i; $j >= 1; $j--) {
+            echo "&nbsp;&nbsp;";
+        }
 
-//$num = 9;
-//$i=1;
-//while ($i <= $num) {  
-////    echo str_repeat('&nbsp;&nbsp;', $i).str_repeat($i.'&nbsp;&nbsp;', $num - $i)."<br/>"; 
-//    echo str_repeat('&nbsp;&nbsp;', $i).str_repeat('*&nbsp;&nbsp;', $num - $i)."<br/>"; 
-//    $i++;
-//}
+        for ($k = 1; $k <= $i; $k++) {
+//        echo "&nbsp;$k&nbsp;";
+        echo "&nbsp;$i&nbsp;";
+//            echo "&nbsp;*&nbsp;";
+        }
+        echo "<br/>";
+    }
+}
 
-// Pyramid of numbers
-//$num = 6;
+/**
+ * Method2: Can be use to draw the pyramid using * only
+ * 
+ * @param type $num
+ * @return void
+ */
+function pyramid2($num) {
+    $n = $i = 10; 
+    while ($i--) {    
+        echo str_repeat('&nbsp;&nbsp;', $i).str_repeat('*&nbsp;&nbsp;', $n - $i)."<br/>";
+    }
+}
 
-//for($i=1; $i<= $num; $i++) {
-//    for($j=$num-$i; $j>=1; $j--) {
-//        echo "&nbsp;&nbsp;";
-//    }
-//    
-//    for($k=1; $k<=$i; $k++) {
-////        echo "&nbsp;$k&nbsp;";
-//        echo "&nbsp;$i&nbsp;";
-//    }
-//    echo "<br/>";
-//}
-
-//for($i=$num; $i>=1 ; $i--) {
-//    for($j=$num-$i; $j>=1; $j--) {
-//        echo "&nbsp;&nbsp;";
-//    }
-//    
-//    for($k=1; $k<=$i; $k++) {
-////        echo "&nbsp;$k&nbsp;";
-////        echo "&nbsp;$i&nbsp;";
-//        echo "&nbsp;*&nbsp;";
-//    }
-//    echo "<br/>";
-//}
+pyramid(8);
+echo "<br/>";
+pyramid2(8);
